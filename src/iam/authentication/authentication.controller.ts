@@ -12,6 +12,24 @@ export class AuthenticationController {
     return this.authService.signUp(signUpDto);
   }
 
+  /**
+   * This line of code signs in the user and returns an access token.
+   */
+  // @HttpCode(HttpStatus.OK)
+  // @Post('sign-in')
+  // async signIn(
+  //   @Res({ passthrough: true }) response: Response,
+  //   @Body() signInDto: SignInDto,
+  // ) {
+  //   const accessToken = await this.authService.signIn(signInDto);
+
+  //   response.cookie('accessToken', accessToken, {
+  //     secure: true,
+  //     httpOnly: true,
+  //     sameSite: true,
+  //   });
+  // }
+
   @HttpCode(HttpStatus.OK)
   @Post('sign-in')
   async signIn(@Body() signInDto: SignInDto) {

@@ -60,10 +60,13 @@ export class AuthenticationService {
         email: user.email,
       },
       {
-        audience: this.jwtConfig.audience,
+        audience: this.jwtConfiguration.audience,
+        issuer: this.jwtConfiguration.issuer,
+        secret: this.jwtConfiguration.secret,
+        expiresIn: this.jwtConfiguration.accessTokenTtl,
       },
     );
 
-    return true;
+    return { accessToken };
   }
 }
