@@ -7,7 +7,9 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { Permissions } from 'src/iam/authorization/decorators/permissions.decorator';
 import { Roles } from 'src/iam/authorization/decorators/role.decorator';
+import { Permission } from 'src/iam/authorization/permission.type';
 import { ActiveUser } from 'src/iam/decorators/active-user.decorator';
 import { ActiveUserData } from 'src/iam/interfaces/active-user-data.interface';
 import { Role } from 'src/users/enums/role.enum';
@@ -19,7 +21,8 @@ import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
 
-  @Roles(Role.Admin)
+  // @Roles(Role.Admin)
+  @Permissions(Permission.CreateCoffee) // TODO
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
     return this.coffeesService.create(createCoffeeDto);
