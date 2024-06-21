@@ -7,6 +7,6 @@
   },
   "generateOptions": {
     "spec": false,
-    "flat": false
+    "flat": true
   }
 }
