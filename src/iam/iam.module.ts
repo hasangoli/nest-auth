@@ -18,6 +18,7 @@ import { PolicyHandlerStorage } from './authorization/policies/policy-handler.st
 import jwtConfig from './config/jwt.config';
 import { BcryptService } from './hashing/bcrypt.service';
 import { HashingService } from './hashing/hashing.service';
+import { OtpAuthenticationService } from './authentication/otp-authentication.service';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { HashingService } from './hashing/hashing.service';
     PolicyHandlerStorage,
     FrameworkContributorPolicyHandler,
     ApiKeysService,
+    OtpAuthenticationService,
   ],
   controllers: [AuthenticationController],
 })
